@@ -13,7 +13,7 @@ export function UseInfiniteCriptocurrecyList() {
       axios.get("/api/cryptocurrency-list", { params: { pageParam } }),
     {
       getNextPageParam: (lastPage) => {
-        return lastPage?.data?.length + 10;
+        return lastPage?.data?.length + 25;
       },
       initialData: () => {
         return queryClient.getQueryData(["UseInfiniteCriptocurrecyList"]);
@@ -22,7 +22,7 @@ export function UseInfiniteCriptocurrecyList() {
     }
   );
 
-  const criptoCurrencyPage = data?.pages.flatMap((page) => page?.data) || [];
+  const criptoCurrencyPage = data?.pages[data?.pages.length - 1]?.data || [];
 
   return { ...rest, data: criptoCurrencyPage };
 }

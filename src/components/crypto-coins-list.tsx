@@ -47,31 +47,28 @@ export function CryptocoinList() {
         </div>
 
         <div className="flex flex-col">
-          {listData.map((data, i) => {
-            const isLastItem = listData.length - 1 !== i;
-            const formatedPrice = data?.quote?.USD?.price.toLocaleString(
-              "en-US",
-              {
-                style: "currency",
-                currency: "USD",
-              }
-            );
+          <InfiniteScroll hasNext={hasNextPage} fetchMore={fetchNextPage}>
+            {listData.map((data, i) => {
+              const isLastItem = listData.length - 1 !== i;
+              const formatedPrice = data?.quote?.USD?.price.toLocaleString(
+                "en-US",
+                {
+                  style: "currency",
+                  currency: "USD",
+                }
+              );
 
-            const tradingVolume1Hour = data?.quote?.USD?.percent_change_1h;
-            const tradingVolume24Hours = data?.quote?.USD?.percent_change_24h;
-            const tradingVolume7Days = data?.quote?.USD?.percent_change_7d;
-            const tradingVolume30Days = data?.quote?.USD?.percent_change_30d;
+              const tradingVolume1Hour = data?.quote?.USD?.percent_change_1h;
+              const tradingVolume24Hours = data?.quote?.USD?.percent_change_24h;
+              const tradingVolume7Days = data?.quote?.USD?.percent_change_7d;
+              const tradingVolume30Days = data?.quote?.USD?.percent_change_30d;
 
-            return (
-              <InfiniteScroll
-                key={data.id}
-                hasNext={hasNextPage}
-                fetchMore={fetchNextPage}
-              >
+              return (
                 <div
                   className={`grid grid-cols-[repeat(6,1fr)] items-center py-3 ${
                     isLastItem && "border-b"
                   }`}
+                  key={data.id}
                 >
                   <div className="flex items-center gap-3 w-52">
                     <div>
@@ -130,9 +127,9 @@ export function CryptocoinList() {
                     {tradingVolume30Days.toFixed(2)} %
                   </span>
                 </div>
-              </InfiniteScroll>
-            );
-          })}
+              );
+            })}
+          </InfiniteScroll>
         </div>
       </div>
     </div>
