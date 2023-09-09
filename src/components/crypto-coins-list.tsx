@@ -32,10 +32,18 @@ export function CryptocoinList() {
           <span className="text-neutral-500 text-sm font-semibold ml-1 justify-self-center">
             Price
           </span>
-          <span className="text-neutral-500 text-sm font-semibold justify-self-center">1hr %</span>
-          <span className="text-neutral-500 text-sm font-semibold justify-self-center">24hr %</span>
-          <span className="text-neutral-500 text-sm font-semibold justify-self-center">7d %</span>
-          <span className="text-neutral-500 text-sm font-semibold justify-self-center">30d %</span>
+          <span className="text-neutral-500 text-sm font-semibold justify-self-center">
+            1hr %
+          </span>
+          <span className="text-neutral-500 text-sm font-semibold justify-self-center">
+            24hr %
+          </span>
+          <span className="text-neutral-500 text-sm font-semibold justify-self-center">
+            7d %
+          </span>
+          <span className="text-neutral-500 text-sm font-semibold justify-self-center">
+            30d %
+          </span>
         </div>
 
         <div className="flex flex-col">

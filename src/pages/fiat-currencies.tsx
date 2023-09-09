@@ -1,11 +1,8 @@
-import { CryptocoinList } from "@/components/crypto-coins-list";
-import { Header } from "@/components/header";
-
-export default function Home() {
+export default function FiatCurrencies() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1 flex items-center justify-center flex-col w-full p-5">
-        <CryptocoinList />
+        <h1>Olá</h1>
       </div>
     </div>
   );
